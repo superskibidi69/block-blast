@@ -32,7 +32,7 @@ if (highScore == null || isNaN(highScore)) {
 if (highScore == 0) {
     highScoreText.innerHTML = '<img src="assets/Screenshot_2024-11-30_4.48.29_PM_Nero_AI_Photo_Face-removebg-preview (1).png">0';
 } else {
-    highScoreText.innerHTML = `<img src="assets/Screenshot_2024-11-30_4.48.29_PM_Nero_AI_Photo_Face-removebg-preview (1).png">${zeroPad(highScore, 3)}`;
+    highScoreText.innerHTML = `<img src="assets/Screenshot_2024-11-30_4.48.29_PM_Nero_AI_Photo_Face-removebg-preview (1).png">${highScore}`;
 }
 
 function animate() {
@@ -43,7 +43,7 @@ ctx.canvas.height = 320; // Increase height
 
 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear the entire canvas
 
-const squareSize = 40; // Size of each square
+const squareSize = 25; // Size of each square
 const squaresPerRow = ctx.canvas.width / squareSize; // Calculate how many squares fit in a row
 const squaresPerCol = ctx.canvas.height / squareSize; // Calculate how many squares fit in a column
 
@@ -151,7 +151,7 @@ document.body.addEventListener('mouseup', async function () {
     }
 
     score += 10;
-    scoreText.innerText = zeroPad(score, 3);
+    scoreText.innerText = score;
 
     dragging.block.color = dragging.color;
     dragging.block.disabled = true;
@@ -172,13 +172,13 @@ document.body.addEventListener('mouseup', async function () {
         if (score > highScore) {
             highScore = score;
             localStorage.setItem('high-score', highScore);
-            highScoreText.innerHTML = `<img src="assets/Screenshot_2024-11-30_4.48.29_PM_Nero_AI_Photo_Face-removebg-preview (1).png">${zeroPad(highScore, 3)}`;
+            highScoreText.innerHTML = `<img src="assets/Screenshot_2024-11-30_4.48.29_PM_Nero_AI_Photo_Face-removebg-preview (1).png">${highScore}`;
         }
 
         playExplosion();
         blocks = [];
         score = 0;
-        scoreText.innerText = zeroPad(0, 3);
+        scoreText.innerText = 0;
         for (let x = 0; x < filled.length; x++) {
             for (let y = 0; y < filled[x].length; y++) {
                 filled[x][y] = 0;
@@ -289,10 +289,10 @@ async function checkDestroy() {
     }
 
     score += (counter - 1) * 100;
-    scoreText.innerText = zeroPad(score, 3);
+    scoreText.innerText = score;
 
     if (score == 0) {
-        scoreText.innerText = zeroPad(0, 3);
+        scoreText.innerText = 0;
     }
 
     if (counter > 1) {
