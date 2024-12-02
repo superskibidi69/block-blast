@@ -715,15 +715,6 @@ document.querySelector(".game-settings").onclick = function() {
             </div>
         </div>
         <div class="settings-option">
-            <div class="toggle-container">
-                <span>Vibration</span>
-                <label class="toggle">
-                    <input type="checkbox">
-                    <span class="toggle-slider"></span>
-                </label>
-            </div>
-        </div>
-        <div class="settings-option">
             Home <button>Back</button>
         </div>
         <div class="settings-option">
