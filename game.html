@@ -48,12 +48,15 @@ body, html {
     display: flex;
     text-align: center;
     align-items: center;
-    color: #FAEB38;
+    background-image: linear-gradient(to bottom left, #FAEB38 10%, #ff6b08);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     font-size: 24px;
     letter-spacing: 1px;
 }
+
 
 .game-highscore img {
     width: 40px;
@@ -91,28 +94,118 @@ body, html {
 }
 
 #setting-popup {
-    width: 80%;
-    height: 60%;
+    width: 30%;
+    height: 80%;
     background: #5A85EE;
     border-radius: 10px;
     position: absolute;
-    top:20%;
-    left:10%;
+}
+.settings-header {
+    position: relative;
+    height:40px;
+    left:0px;
+    top:0px;
+    width:100%;
+    justify-content: center;
+    text-align: center;
+}
+.settings-header text {
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: white;
+    margin-top: 5px;
+}
+.settings-header button {
+    background: transparent;
+    outline: 0;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: rgb(170, 170, 170);
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 25px;
 }
 .settings-section {
     background: #3145A4;
-    width: 95%;
-    height: 95%;
+    width: 90%;
+    height: 90%;
     border-radius: 10px;
     position: relative;
-    margin:1%;
+    margin: auto;
 }
+.settings-option {
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 500;
+    font-size: 20px;
+    letter-spacing: 1px;
+    color: white;
+    padding: 20px;
+    display: flex;
+    margin-right: 50px;
+}
+.toggle-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .toggle {
+            
+            position: relative;
+            width: 60px;
+            height: 34px;
+        }
+
+        .toggle input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .toggle-slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .toggle-slider {
+            background-color: #21f32c;
+        }
+
+        input:checked + .toggle-slider:before {
+            transform: translateX(26px);
+        }
     </style>
 </head>
 <body>
 
     <div class="game-header">
-        <div class="game-highscore" id="high-score"><img src="assets/Screenshot_2024-11-30_4.48.29_PM_Nero_AI_Photo_Face-removebg-preview (1).png">0</div>
+        <div class="game-highscore" id="high-score"><img src="assets/Screenshot_2024-11-30_4.48.29_PM_Nero_AI_Photo_Face-removebg-preview (1).png"><text>0</text></div>
         <div class="game-settings"><img src="assets/Screenshot_2024-11-30_4.48.45_PM_Nero_AI_Photo_Face-removebg-preview.png"></div>
         </div>
         <div class="game-score"><text id="score">0</text></div>
