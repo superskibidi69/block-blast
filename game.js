@@ -1,9 +1,9 @@
 const canvas = document.getElementById('game-canvas');
 const ctx = canvas.getContext('2d');
 
-var scalar = window.innerHeight / 210;
-canvas.style.width = "100%";
-canvas.style.height = "100%";
+var scalar = Math.min(window.innerWidth, window.innerHeight) / 80; // Adjust the divisor to change grid coverage
+canvas.width = window.innerWidth; // Set canvas width to full window width
+canvas.height = window.innerHeight; // Set canvas height to full window height
 let filled = Array.from({ length: 8 }, () => Array(8).fill(0));
 var busting = false;
 
@@ -37,25 +37,29 @@ if (highScore == 0) {
 
 function animate() {
     requestAnimationFrame(animate);
+// Set the canvas size to fill more of the screen
+ctx.canvas.width = 320; // Increase width
+ctx.canvas.height = 320; // Increase height
 
-    ctx.canvas.width = 100 * 1;
-    ctx.canvas.height = (100 + 100) * 1;
+ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear the entire canvas
 
-    ctx.clearRect(0, 0, 100, 195)
+const squareSize = 40; // Size of each square
+const squaresPerRow = ctx.canvas.width / squareSize; // Calculate how many squares fit in a row
+const squaresPerCol = ctx.canvas.height / squareSize; // Calculate how many squares fit in a column
 
-    for (let x = 0; x < 80; x += 10) { // Change 100 to 80
-        for (let y = 0; y < 80; y += 10) { // Change 100 to 80
-            if (filled[x / 10][y / 10] == 0) { // Change (10 * 1) to 10
-                ctx.fillStyle = '#1E2748';
-                ctx.fillRect(x, y, 10, 10); // Change (10 * 1) to 10
-                ctx.fillStyle = '#222B4C';
-                ctx.fillRect(x + 1, y + 1, 8, 8); // Change (10 - 2) to 8
-            } else {
-                ctx.fillStyle = colors[filled[x / 10][y / 10] - 1];
-                ctx.fillRect(x, y, 10, 10); // Change (10 * 1) to 10
-            }
+for (let x = 0; x < squaresPerRow; x++) {
+    for (let y = 0; y < squaresPerCol; y++) {
+        if (filled[x][y] == 0) {
+            ctx.fillStyle = '#1E2748';
+            ctx.fillRect(x * squareSize, y * squareSize, squareSize, squareSize); // Draw the outer square
+            ctx.fillStyle = '#222B4C';
+            ctx.fillRect(x * squareSize + 1, y * squareSize + 1, squareSize - 2, squareSize - 2); // Draw the inner square
+        } else {
+            ctx.fillStyle = colors[filled[x][y] - 1];
+            ctx.fillRect(x * squareSize, y * squareSize, squareSize, squareSize); // Draw the filled square
         }
     }
+}
 
     document.body.style.cursor = 'default';
 
@@ -683,3 +687,18 @@ addBlock(parseInt(Math.random() * blockSelection) + 1, 55, 110, 2);
 const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
+document.querySelector(".game-settings").onclick = function() {
+    let settings = document.createElement("div");
+    settings.id = "setting-popup";
+    settings.innerHTML = `
+    <div class="settings-section">
+      <div class="settings-option">Sound <div></div>Toggle</div>  
+      <div class="settings-option">BGM <div></div>Toggle</div> 
+    <div class="settings-option">Vibration <div></div>Toggle</div>
+    <div class="settings-option">Home <div></div>Toggle</div>
+    <div class="settings-option">Replay <div></div>Toggle</div>
+    <div class="settings-option">More Games <div></div>Toggle</div>
+    <div class="settings-option">More Settings <div></div>Toggle</div>
+    </div>`;
+    document.body.appendChild(settings);
+ }
