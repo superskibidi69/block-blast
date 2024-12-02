@@ -64,7 +64,7 @@ for (let x = 0; x < squaresPerRow; x++) {
     document.body.style.cursor = 'default';
 
     ctx.fillStyle = '#324c83';
-    ctx.fillRect(0, 320, 320, 200);
+    ctx.fillRect(0, squaresPerCol * squareSize, ctx.canvas.width, 200); // Adjust height as needed
 
     for (let i = 0; i < blocks.length; i++) {
         blocks[i].render();
@@ -76,9 +76,10 @@ for (let x = 0; x < squaresPerRow; x++) {
         let newX = mousePosition.x - dragging.offsetX;
         let newY = mousePosition.y - dragging.offsetY;
 
-        if (newY < 100 && !checkOverlapY(dragging.block, newY)) {
-            let snapX = parseInt(newX / 10) * 10;
-            let snapY = parseInt(newY / 10) * 10;
+        // Snap to grid for dragging
+        if (newY < squaresPerCol * squareSize && !checkOverlapY(dragging.block, newY)) {
+            let snapX = Math.floor(newX / squareSize) * squareSize; // Snap to squareSize
+            let snapY = Math.floor(newY / squareSize) * squareSize; // Snap to squareSize
 
             if (!checkOverlapX(dragging.block, snapX)) {
                 dragging.block.x = snapX;
@@ -89,14 +90,14 @@ for (let x = 0; x < squaresPerRow; x++) {
 
             if (checkIntersect(dragging.block)) {
                 dragging.block.color = 'white';
-                ctx.fillStyle = 'white'
+                ctx.fillStyle = 'white';
                 dragging.block.render();
             } else {
                 dragging.block.color = dragging.color;
             }
 
         } else {
-            dragging.block.x = mousePosition.x - dragging.offsetX;
+            dragging.block.x = mousePosition .x - dragging.offsetX;
             dragging.block.y = mousePosition.y - dragging.offsetY;
         }
     }
@@ -680,9 +681,9 @@ function addBlock(type, x, y, id) {
     blocks.push(tempBlock);
 }
 
-addBlock(parseInt(Math.random() * blockSelection) + 1, 5, 110, 0);
-addBlock(parseInt(Math.random() * blockSelection) + 1, 35, 155, 1);
-addBlock(parseInt(Math.random() * blockSelection) + 1, 55, 110, 2);
+addBlock(parseInt(Math.random() * blockSelection) + 1, 5, 320, 0); // Adjust the y value to 320
+addBlock(parseInt(Math.random() * blockSelection) + 1, 45, 320, 1); // Adjust the y value to 320
+addBlock(parseInt(Math.random() * blockSelection) + 1, 85, 320, 2); // Adjust the y value to 320
 
 const sleep = (milliseconds) => {
     return new Promise(resolve => setTimeout(resolve, milliseconds))
