@@ -43,7 +43,7 @@ ctx.canvas.height = 320; // Increase height
 
 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear the entire canvas
 
-const squareSize = 25; // Size of each square
+const squareSize = 20; // Size of each square
 const squaresPerRow = ctx.canvas.width / squareSize; // Calculate how many squares fit in a row
 const squaresPerCol = ctx.canvas.height / squareSize; // Calculate how many squares fit in a column
 
