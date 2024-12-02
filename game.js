@@ -691,30 +691,50 @@ document.querySelector(".game-settings").onclick = function() {
     let settings = document.createElement("div");
     settings.id = "setting-popup";
     settings.innerHTML = `
-    <div class="settings-header"><text>Settings</text><button>X</button></div>
+    <div class="settings-header">
+        <text>Settings</text>
+        <button>X</button>
+    </div>
     <div class="settings-section">
-      <div class="settings-option">Sound <div><div class="toggle-container">
-        <label class="toggle">
-            <input type="checkbox">
-            <span class="toggle-slider"></span>
-        </label>
-    </div></div></div>  
-      <div class="settings-option">BGM <div><div class="toggle-container">
-        <label class="toggle">
-            <input type="checkbox">
-            <span class="toggle-slider"></span>
-        </label>
-    </div></div></div> 
-    <div class="settings-option">Vibration <div><div class="toggle-container">
-        <label class="toggle">
-            <input type="checkbox">
-            <span class="toggle-slider"></span>
-        </label>
-    </div></div></div>
-    <div class="settings-option">Home <button>Back</button></div>
-    <div class="settings-option">Replay <button>Play</button></div>
-    <div class="settings-option">More Games <button>Start</button></div>
-    <div class="settings-option">More Settings <button>Set</button></div>
+        <div class="settings-option">
+            <div class="toggle-container">
+                <span>Sound</span>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="settings-option">
+            <div class="toggle-container">
+                <span>BGM</span>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="settings-option">
+            <div class="toggle-container">
+                <span>Vibration</span>
+                <label class="toggle">
+                    <input type="checkbox">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+        <div class="settings-option">
+            Home <button>Back</button>
+        </div>
+        <div class="settings-option">
+            Replay <button>Play</button>
+        </div>
+        <div class="settings-option">
+            More Games <button>Start</button>
+        </div>
+        <div class="settings-option">
+            More Settings <button>Set</button>
+        </div>
     </div>`;
     document.body.appendChild(settings);
  }
