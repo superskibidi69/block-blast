@@ -4,70 +4,129 @@
     <title>Block Blast!</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#183CB5">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+    <style>   @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
 
-body {
-    background: linear-gradient(to bottom, #183CB5  40%, #1086DE);
-    width: 100%;
-    height: 100%;
-    overflow: hidden; /* Prevents scrolling */
-    user-select: none; /* Prevents text selection */
-}
+        body {
+            background: linear-gradient(to bottom, #183CB5  40%, #1086DE);
+            width: 100%;
+            height: 100%;
+            overflow: hidden; /* Prevents scrolling */
+            user-select: none; /* Prevents text selection */
+            transition: background-color 1s ease; /* Smooth transition for background color */
+        }
 
-.home-logo {
-    width: 100%;
-    height: 50%;
-    text-align: center;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-}
+        .hungry-logo {
+            display: flex; /* Use flexbox to center content */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            height: 100vh;
+            transition: opacity 1s ease; /* Smooth transition for opacity */
+        }
 
-.home-logo img {
-    width: 100%;
-    height: 100%;
-}
+        .home-logo,
+        .home-buttons {
+            display: none; /* Initially hidden */
+        }
 
-.home-buttons {
-    width: 100%;
-    height: 50%;
-    position: absolute;
-    top: 50%;
-}
+        .fade-out {
+            opacity: 0; /* Fade out effect */
+        }
 
-.home-buttons button:hover,
-.home-buttons button:focus {
-    transform: scale(0.95);
-}
+        .fade-in {
+            display: block; /* Show elements */
+            opacity: 1; /* Fade in effect */
+            transition: opacity 1s ease; /* Smooth transition for opacity */
+        }
 
-.home-adventure {
-    margin-top: 70px;
-    height: 20%;
-    width: 60%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    left: 20%;
-}
+        .home-logo {
+            width: 100%;
+            height: 50%;
+            text-align: center;
+            position: fixed;
+            top: 0px;
+            left: 0px;
+        }
 
-.home-classic {
-    margin-top: 40px;
-    height: 15%;
-    width: 60%;
-    position: relative;
-    display: flex;
-    align-items: center;
-    left: 20%;
-}
-    </style>
+        .home-logo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .home-buttons {
+            width: 100%;
+            height: 50%;
+            position: absolute;
+            top: 50%;
+        }
+
+        .home-buttons button:hover,
+        .home-buttons button:focus {
+            transform: scale(0.95);
+        }
+
+        .home-adventure {
+            margin-top: 70px;
+            height: 20%;
+            width: 60%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            left: 20%;
+        }
+
+        .home-classic {
+            margin-top: 40px;
+            height: 15%;
+            width: 60%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            left: 20%;
+        }
+
+        .black-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 0; /* Start as invisible */
+            transition: opacity 1s ease; /* Smooth transition for opacity */
+            z-index: 10; /* Make sure it's on top */
+        }</style>
 </head>
 
 <body>
-    <div class="home-logo">
+    <div class="hungry-logo">
+        <?xml version="1.0" encoding="UTF-8"?>
+        <svg xmlns="http://www.w3.org/2000/svg" width="80%" height="80%" viewBox="0 0 320 110" fill="none">
+          <g clip-path="url(#clip0_3374_3025)">
+            <path d="M53.8081 10.1094V34.0511H37.4381V10.1094H26.2344V68.9884H37.4381V45.0467H53.8081V68.9884H65.0118V10.1094H53.8081Z" fill="#fff"></path>
+            <path d="M97.9639 10.1094V50.5077C97.9639 55.0282 94.3015 58.6905 89.7811 58.6905C85.2606 58.6905 81.5982 55.0282 81.5982 50.5077V10.1094H70.3945V50.2953C70.3945 61.005 79.0758 69.6862 89.7854 69.6862C100.495 69.6862 109.176 61.005 109.176 50.2953V10.1094H97.9725H97.9639Z" fill="#fff"></path>
+            <path d="M293.267 10.1094H280.98L270.388 35.1563L259.795 10.1094H247.508L264.441 50.1393V68.9884H276.334V50.1393L293.267 10.1094Z" fill="#fff"></path>
+            <path d="M202.323 48.9149L181.636 75.3877L160.945 48.9106C155.792 42.3184 155.792 33.065 160.945 26.4728L181.632 0L185.073 4.40347C187.231 7.1643 187.231 11.039 185.073 13.7998L168.967 34.4086C167.459 36.3416 167.459 39.0548 168.967 40.9878L181.632 57.1974L195.215 39.8132C196.186 38.5694 196.186 36.827 195.215 35.5831L192.814 32.5102L181.636 46.8172L175.005 38.3266C174.736 37.9799 174.736 37.4988 175.005 37.1521L192.835 14.3329L202.327 26.4815C207.48 33.0737 207.48 42.327 202.327 48.9192L202.323 48.9149Z" fill="#FF0046"></path>
+            <path d="M142.139 10.1094V44.5353H141.961L128.048 11.648C127.658 10.7292 126.761 10.131 125.764 10.1137L114.561 10.1094V68.9841H125.764V34.5582H125.942L140.505 68.9841H153.342V10.1094H142.139Z" fill="#fff"></path>
+            <path d="M240.482 44.4174C245.939 41.2232 249.614 35.3114 249.614 28.5329C249.614 18.3607 241.371 10.1172 231.199 10.1172H209.936V68.9919H221.139V21.1085H230.986C235.086 21.1085 238.406 24.4285 238.406 28.5285C238.406 32.6286 235.086 35.9486 230.986 35.9486H224.771V36.3256L238.588 68.9876H250.876L240.482 44.4131V44.4174Z" fill="#fff"></path>
+            <path d="M210.321 101.18C210.321 103.641 208.951 105.735 205.384 105.735C201.817 105.735 200.448 103.641 200.448 101.18V83.5137H196.248V101.526C196.248 102.744 196.478 103.871 196.933 104.903C197.388 105.934 198.025 106.831 198.836 107.594C199.646 108.357 200.613 108.946 201.726 109.371C202.845 109.791 204.062 110.004 205.38 110.004C206.698 110.004 207.92 109.791 209.034 109.371C210.152 108.946 211.114 108.357 211.925 107.594C212.735 106.831 213.372 105.938 213.827 104.903C214.282 103.871 214.512 102.744 214.512 101.526V83.5137H210.312V101.18H210.321Z" fill="#fff"></path>
+            <path d="M254.146 83.5117H249.941V109.577H254.146V83.5117Z" fill="#fff"></path>
+            <path d="M172.109 83.3823H179.529V109.582H183.738V83.3823H191.158V79.3516H172.109V83.3823Z" fill="#fff"></path>
+            <path d="M231.095 83.5117H223.086V109.577H231.095C236.782 109.577 241.393 104.966 241.393 99.2793V93.8139C241.393 88.1276 236.782 83.5161 231.095 83.5161V83.5117ZM237.189 99.444C237.189 102.816 234.454 105.546 231.087 105.546H227.294V87.5381H231.087C234.459 87.5381 237.189 90.2686 237.189 93.6406V99.4396V99.444Z" fill="#fff"></path>
+            <path d="M161.406 95.0644C159.251 93.9895 156.967 93.2961 155.914 91.2417C155.082 89.6207 156.278 86.7169 159.494 86.7169C162.71 86.7169 163.386 89.4994 163.412 89.9891L163.421 90.1972H167.603V89.4474C167.452 86.2358 164.604 82.9375 159.407 82.9375C154.211 82.9375 151.285 86.0277 151.285 90.0888C151.285 94.4013 154.883 96.655 158.034 98.0723C160.69 99.2685 162.74 100.187 163.352 101.899C163.859 103.317 163.018 106.298 159.273 106.298C155.736 106.298 154.839 103.624 154.839 102.294V101.314H150.492V102.757C150.492 106.589 153.838 109.995 159.351 109.995C164.574 109.995 167.911 106.463 167.725 102.562C167.725 98.536 164.478 96.5987 161.406 95.0644Z" fill="#fff"></path>
+            <path d="M271.854 83.0879C266.804 83.0879 262.713 87.1793 262.713 92.2286V100.858C262.713 105.907 266.804 109.998 271.854 109.998C276.903 109.998 280.994 105.907 280.994 100.858V92.2286C280.994 87.1793 276.903 83.0879 271.854 83.0879ZM276.786 101.031C276.786 103.757 274.575 105.963 271.854 105.963C269.132 105.963 266.921 103.753 266.921 101.031V92.0509C266.921 89.3247 269.132 87.1186 271.854 87.1186C274.575 87.1186 276.786 89.329 276.786 92.0509V101.031Z" fill="#fff"></path>
+          </g>
+          <defs>
+            <clipPath id="clip0_3374_3025">
+              <rect width="267.5" height="110" fill="white" transform="translate(26)"></rect>
+            </clipPath>
+          </defs>
+        </svg>
+        
+    </div>
+    <div style="display: none;" class="home-logo">
         <img src="assets\Project-Name-2.png">
     </div>
-    <div class="home-buttons">
+    <div style="display: none;" class="home-buttons">
         <img class="home-adventure" src="assets\IMG-0519.png">
         <img class="home-classic" src="assets\IMG-0521.png" onclick="location.href='game.html'">
     </div>
