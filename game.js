@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 
 var scalar = Math.min(window.innerWidth, window.innerHeight) / 80; // Adjust the divisor to change grid coverage
 canvas.width = window.innerWidth; // Set canvas width to full window width
-canvas.height = window.innerHeight; // Set canvas height to full window height
+canvas.height = "80vh"; // Set canvas height to full window height
 let filled = Array.from({ length: 8 }, () => Array(8).fill(0));
 var busting = false;
 
@@ -43,7 +43,7 @@ ctx.canvas.height = 320; // Increase height
 
 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear the entire canvas
 
-const squareSize = 20; // Size of each square
+const squareSize = 40; // Size of each square
 const squaresPerRow = ctx.canvas.width / squareSize; // Calculate how many squares fit in a row
 const squaresPerCol = ctx.canvas.height / squareSize; // Calculate how many squares fit in a column
 
