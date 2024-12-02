@@ -3,7 +3,7 @@ const ctx = canvas.getContext('2d');
 
 var scalar = Math.min(window.innerWidth, window.innerHeight) / 80; // Adjust the divisor to change grid coverage
 canvas.width = window.innerWidth; // Set canvas width to full window width
-canvas.height = "80vh"; // Set canvas height to full window height
+canvas.height = window.innerHeight; // Set canvas height to full window height
 let filled = Array.from({ length: 8 }, () => Array(8).fill(0));
 var busting = false;
 
@@ -39,7 +39,7 @@ function animate() {
     requestAnimationFrame(animate);
 // Set the canvas size to fill more of the screen
 ctx.canvas.width = 320; // Increase width
-ctx.canvas.height = 320; // Increase height
+ctx.canvas.height = 500; // Increase height
 
 ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height); // Clear the entire canvas
 
@@ -64,7 +64,7 @@ for (let x = 0; x < squaresPerRow; x++) {
     document.body.style.cursor = 'default';
 
     ctx.fillStyle = '#324c83';
-    ctx.fillRect(0 * 1, 100 * 1, 100 * 1, 175 * 1);
+    ctx.fillRect(0, 320, 320, 200);
 
     for (let i = 0; i < blocks.length; i++) {
         blocks[i].render();
