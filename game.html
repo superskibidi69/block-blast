@@ -68,7 +68,6 @@ html, body {
             top: 0;
             left: 0;
             width: 100%;
-            height: 100%;
             padding: 0;
             border: 0;
             margin: 0;
@@ -113,7 +112,7 @@ p.footer {
 .bb-header {
   width: 100%;
   height: 10%;
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   margin: 0;
@@ -155,10 +154,11 @@ p.footer {
         height: 50px;
       }
       .outer-container {
+        visibility: hidden;
             background-color: #3b5cb8;
             border-radius: 10px;
             padding: 20px;
-            width: 450px;
+            width: 80vh;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
             position: relative;
             z-index: 1000;
@@ -188,16 +188,27 @@ p.footer {
             padding: 10%;
         }
         .settings-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 15px;
-            color: white;
-            border-bottom: 1px solid 323981;
-        }
-        .settings-item i {
-            margin-right: 10px;
-        }
+    font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
+    font-weight: bold;
+    display: flex; /* Use flexbox for layout */
+    justify-content: space-between; /* Space between items */
+    align-items: center; /* Center items vertically */
+    margin-bottom: 25px;
+    color: white;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #323981;
+}
+
+.settings-item div {
+    display: flex; /* Ensure the SVG and text are in a flex container */
+    align-items: center; /* Center SVG and text vertically */
+}
+
+.settings-item svg {
+    width: 25px; /* Adjusted size */
+    height: 25px; /* Adjusted size */
+    margin-right: 10px; /* Space between SVG and text */
+}
         .settings-item .toggle-switch {
           margin-right: 15px;
             width: 50px;
@@ -239,6 +250,7 @@ p.footer {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh; /* Full viewport height */
+    width:100%;
 }
 
   </style>
@@ -260,43 +272,43 @@ p.footer {
             <div class="settings-container">
                 <div class="settings-item">
                     <div>
-                        <i class="fas fa-volume-up"></i> Sound
+                      <svg viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M8.74641 1.06494C8.90313 1.1537 9 1.31989 9 1.5V13.5C9 13.6801 8.9031 13.8463 8.74635 13.9351C8.58959 14.0239 8.39722 14.0214 8.24275 13.9287L3.36151 11H1.5C0.672066 11 0 10.329 0 9.5V5.49739C0 4.66798 0.672491 3.99804 1.5 3.99804H3.36159L8.24288 1.07118C8.39735 0.978558 8.58969 0.976173 8.74641 1.06494Z" fill="#ffffff"></path> <path d="M13.8535 4.14438L13.4998 3.79094L12.793 4.49827L13.1444 4.84953L13.1466 4.85184C13.1502 4.85561 13.1571 4.86308 13.1669 4.87426C13.1864 4.89663 13.2175 4.93374 13.2564 4.98555C13.3342 5.08924 13.4428 5.2512 13.5529 5.47128C13.7723 5.90979 14.0001 6.58318 14.0001 7.49609C14.0001 8.409 13.7723 9.08238 13.5529 9.5209C13.4428 9.74097 13.3342 9.90294 13.2564 10.0066C13.2175 10.0584 13.1864 10.0955 13.1669 10.1179C13.1571 10.1291 13.1502 10.1366 13.1466 10.1403L13.1445 10.1426L12.793 10.4939L13.4998 11.2012L13.8535 10.8478L13.5001 10.4941C13.8535 10.8478 13.8533 10.848 13.8535 10.8478L13.8543 10.8471L13.8551 10.8462L13.857 10.8443L13.862 10.8392L13.876 10.8245C13.8871 10.8127 13.9017 10.7967 13.9192 10.7767C13.9543 10.7366 14.0014 10.68 14.0562 10.6069C14.1659 10.4607 14.3073 10.2479 14.4472 9.96835C14.7278 9.40751 15.0001 8.58188 15.0001 7.49609C15.0001 6.4103 14.7278 5.58467 14.4472 5.02383C14.3073 4.74423 14.1659 4.53144 14.0562 4.3853C14.0014 4.31219 13.9543 4.25561 13.9192 4.21551C13.9017 4.19546 13.8871 4.17951 13.876 4.16767L13.862 4.15296L13.857 4.1479L13.8551 4.14595L13.8543 4.14511C13.8541 4.14493 13.8535 4.14438 13.5001 4.49804L13.8535 4.14438Z" fill="#ffffff"></path> </g></svg> Sound
                     </div>
                     <div class="toggle-switch active"></div>
                 </div>
                 <div class="settings-item">
                     <div>
-                        <i class="fas fa-music"></i> BGM
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M10.0909 11.9629L19.3636 8.63087V14.1707C18.8126 13.8538 18.1574 13.67 17.4545 13.67C15.4964 13.67 13.9091 15.096 13.9091 16.855C13.9091 18.614 15.4964 20.04 17.4545 20.04C19.4126 20.04 21 18.614 21 16.855C21 16.855 21 16.8551 21 16.855L21 7.49236C21 6.37238 21 5.4331 20.9123 4.68472C20.8999 4.57895 20.8852 4.4738 20.869 4.37569C20.7845 3.86441 20.6352 3.38745 20.347 2.98917C20.2028 2.79002 20.024 2.61055 19.8012 2.45628C19.7594 2.42736 19.716 2.39932 19.6711 2.3722L19.6621 2.36679C18.8906 1.90553 18.0233 1.93852 17.1298 2.14305C16.2657 2.34086 15.1944 2.74368 13.8808 3.23763L11.5963 4.09656C10.9806 4.32806 10.4589 4.52419 10.0494 4.72734C9.61376 4.94348 9.23849 5.1984 8.95707 5.57828C8.67564 5.95817 8.55876 6.36756 8.50501 6.81203C8.4545 7.22978 8.45452 7.7378 8.45455 8.33743V16.1307C7.90347 15.8138 7.24835 15.63 6.54545 15.63C4.58735 15.63 3 17.056 3 18.815C3 20.574 4.58735 22 6.54545 22C8.50355 22 10.0909 20.574 10.0909 18.815C10.0909 18.815 10.0909 18.8151 10.0909 18.815L10.0909 11.9629Z" fill="#ffffff"></path> </g></svg> BGM
                     </div>
                     <div class="toggle-switch"></div>
                 </div>
                 <div class="settings-item">
                     <div>
-                        <i class="fas fa-mobile-alt"></i> Vibration
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M5 8C5 5.17157 5 3.75736 5.87868 2.87868C6.75736 2 8.17157 2 11 2H13C15.8284 2 17.2426 2 18.1213 2.87868C19 3.75736 19 5.17157 19 8V16C19 18.8284 19 20.2426 18.1213 21.1213C17.2426 22 15.8284 22 13 22H11C8.17157 22 6.75736 22 5.87868 21.1213C5 20.2426 5 18.8284 5 16V8Z" stroke="#ffffff" stroke-width="1.5"></path> <path d="M14.5 19H9.5" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round"></path> <path d="M22.0001 6L21.2237 7.55279C21.083 7.83431 21.083 8.16569 21.2237 8.44721L21.7765 9.55279C21.9173 9.83431 21.9173 10.1657 21.7765 10.4472L21.2237 11.5528C21.083 11.8343 21.083 12.1657 21.2237 12.4472L21.7765 13.5528C21.9173 13.8343 21.9173 14.1657 21.7765 14.4472L21.2237 15.5528C21.083 15.8343 21.083 16.1657 21.2237 16.4472L22.0001 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> <path d="M2 6L2.77639 7.55279C2.91716 7.83431 2.91716 8.16569 2.77639 8.44721L2.22361 9.55279C2.08284 9.83431 2.08284 10.1657 2.22361 10.4472L2.77639 11.5528C2.91716 11.8343 2.91716 12.1657 2.77639 12.4472L2.22361 13.5528C2.08284 13.8343 2.08284 14.1657 2.22361 14.4472L2.77639 15.5528C2.91716 15.8343 2.91716 16.1657 2.77639 16.4472L2 18" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg> Vibration
                     </div>
                     <div class="toggle-switch"></div>
                 </div>
                 <div class="settings-item">
                     <div>
-                        <i class="fas fa-home"></i> Home
+                      <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M6.5 20V11H3L12 5L21 11H17.5V20H14.5V16.5C14.5 15.6716 13.8284 15 13 15H11C10.1716 15 9.5 15.6716 9.5 16.5V20H6.5Z" fill="#ffffff" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg> Home
                     </div>
                     <button class="button">Back</button>
                 </div>
                 <div class="settings-item">
                     <div>
-                        <i class="fas fa-redo"></i> Replay
+                      <svg height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 29.963 29.963" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path style="fill:#ffffff;" d="M29.133,9.215c-0.775-0.428-1.751-0.146-2.178,0.63l-0.518,0.937 c-1.772-5.424-6.874-9.356-12.882-9.356C6.081,1.426,0,7.507,0,14.981s6.081,13.555,13.555,13.555 c0.886,0,1.604-0.718,1.604-1.603c0-0.885-0.718-1.603-1.604-1.603c-5.706,0-10.349-4.643-10.349-10.35S7.849,4.632,13.555,4.632 c4.525,0,8.372,2.924,9.775,6.978l-0.876-0.483c-0.775-0.428-1.751-0.147-2.178,0.629c-0.428,0.776-0.147,1.751,0.629,2.178 l3.169,1.748c0.261,0.531,0.801,0.901,1.434,0.901c0.16,0,0.311-0.031,0.456-0.074c0.009,0,0.016,0.003,0.025,0.003 c0.565,0,1.112-0.298,1.406-0.829l2.368-4.292C30.191,10.618,29.909,9.643,29.133,9.215z"></path> </g> </g> </g></svg> Replay
                     </div>
                     <button class="button">Play</button>
                 </div>
                 <div class="settings-item">
                     <div>
-                        <i class="fas fa-th-large"></i> More Games
+                      <svg fill="#ffffff" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" stroke="#ffffff"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M10.5,2h-4a1,1,0,0,0-1,1V8h6V3A1,1,0,0,0,10.5,2Z"></path><path d="M5.5,14a1,1,0,0,0,1,1h5V9h-6Z"></path><path d="M17.5,9h-5v6h6V10A1,1,0,0,0,17.5,9Z"></path><path d="M12.5,21a1,1,0,0,0,1,1h4a1,1,0,0,0,1-1V16h-6Z"></path></g></svg> More Games
                     </div>
                     <button class="button">Start</button>
                 </div>
                 <div class="settings-item">
                     <div>
-                        <i class="fas fa-cogs"></i> More Settings
+                        <svg height="200px" width="200px" version="1.1" id="_x32_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <style type="text/css"> .st0{fill:#ffffff;} </style> <g> <path class="st0" d="M277.028,262.753l-26.612-2.882c-3.641-0.394-6.72-2.788-8.118-6.172c-0.017-0.04-0.034-0.081-0.05-0.121 c-1.403-3.383-0.92-7.252,1.376-10.105l16.78-20.855c3.164-3.932,2.857-9.616-0.712-13.185l-31.411-31.411 c-3.569-3.569-9.252-3.876-13.185-0.712l-20.864,16.787c-2.846,2.29-6.704,2.776-10.082,1.386c-0.037-0.015-0.074-0.03-0.111-0.045 c-3.396-1.394-5.799-4.478-6.194-8.128l-2.883-26.624c-0.543-5.018-4.779-8.82-9.826-8.82h-44.422c-5.047,0-9.283,3.802-9.826,8.82 l-2.883,26.624c-0.395,3.649-2.799,6.734-6.195,8.128c-0.037,0.015-0.074,0.03-0.11,0.045c-3.378,1.391-7.236,0.904-10.082-1.386 L70.752,177.31c-3.932-3.164-9.616-2.857-13.184,0.712l-31.411,31.411c-3.569,3.569-3.876,9.253-0.712,13.185l16.78,20.855 c2.296,2.854,2.779,6.722,1.376,10.105c-0.017,0.04-0.033,0.081-0.05,0.121c-1.399,3.384-4.477,5.778-8.118,6.172L8.82,262.753 C3.802,263.296,0,267.532,0,272.579v44.422c0,5.047,3.802,9.283,8.82,9.826l26.612,2.881c3.641,0.394,6.72,2.788,8.118,6.172 c0.017,0.04,0.033,0.081,0.05,0.121c1.403,3.383,0.92,7.252-1.376,10.106l-16.78,20.855c-3.164,3.932-2.857,9.616,0.712,13.185 l31.411,31.411c3.569,3.569,9.253,3.876,13.185,0.712l20.864-16.787c2.846-2.291,6.704-2.777,10.082-1.386 c0.037,0.015,0.074,0.03,0.111,0.045c3.396,1.394,5.799,4.478,6.194,8.128l2.883,26.624c0.543,5.018,4.779,8.82,9.826,8.82h44.422 c5.047,0,9.283-3.802,9.826-8.82l2.883-26.624c0.395-3.649,2.798-6.734,6.194-8.128c0.037-0.015,0.074-0.03,0.11-0.045 c3.378-1.391,7.236-0.905,10.083,1.386l20.864,16.787c3.932,3.164,9.616,2.857,13.185-0.712l31.411-31.411 c3.569-3.569,3.875-9.253,0.712-13.185l-16.78-20.855c-2.296-2.853-2.779-6.722-1.376-10.106c0.016-0.04,0.033-0.08,0.05-0.121 c1.399-3.384,4.477-5.778,8.118-6.172l26.612-2.881c5.017-0.544,8.82-4.78,8.82-9.826v-44.422 C285.848,267.532,282.046,263.296,277.028,262.753z M142.924,339.349c-24.609,0-44.559-19.95-44.559-44.559 c0-24.609,19.95-44.559,44.559-44.559s44.559,19.95,44.559,44.559C187.483,319.399,167.533,339.349,142.924,339.349z"></path> <path class="st0" d="M507.469,218.212L489.2,203.785c-2.91-2.298-4.526-5.821-4.528-9.53c0-0.039,0-0.078,0-0.118 c-0.006-3.717,1.611-7.249,4.528-9.552l18.269-14.428c4.184-3.304,5.664-8.985,3.624-13.91l-8.025-19.374 c-2.04-4.926-7.104-7.896-12.398-7.274l-23.12,2.716c-3.692,0.434-7.333-0.92-9.956-3.553c-0.027-0.028-0.055-0.056-0.083-0.083 c-2.622-2.624-3.97-6.258-3.537-9.941l2.716-23.119c0.622-5.294-2.349-10.358-7.274-12.398l-19.374-8.024 c-4.925-2.04-10.606-0.56-13.91,3.623l-14.428,18.268c-2.299,2.911-5.822,4.526-9.53,4.528c-0.04,0-0.079,0-0.118,0 c-3.716,0.006-7.248-1.611-9.552-4.528l-14.428-18.269c-3.304-4.184-8.986-5.664-13.911-3.624l-19.374,8.025 c-4.925,2.04-7.896,7.104-7.274,12.399l2.716,23.12c0.434,3.691-0.92,7.332-3.553,9.956c-0.028,0.028-0.056,0.056-0.084,0.084 c-2.624,2.622-6.257,3.97-9.941,3.537l-23.119-2.716c-5.295-0.622-10.358,2.349-12.398,7.274l-8.025,19.374 c-2.04,4.925-0.56,10.607,3.624,13.911l18.268,14.427c2.911,2.299,4.526,5.821,4.528,9.53c0,0.04,0,0.079,0,0.118 c0.007,3.717-1.611,7.249-4.528,9.552l-18.269,14.428c-4.184,3.304-5.664,8.985-3.623,13.91l8.024,19.374 c2.04,4.925,7.104,7.896,12.398,7.274l23.121-2.716c3.691-0.434,7.332,0.92,9.956,3.553c0.028,0.028,0.055,0.056,0.083,0.083 c2.622,2.624,3.97,6.257,3.537,9.941l-2.716,23.12c-0.622,5.295,2.349,10.358,7.274,12.398l19.374,8.025 c4.925,2.04,10.606,0.56,13.911-3.624l14.427-18.268c2.299-2.911,5.821-4.526,9.53-4.528c0.039,0,0.078,0,0.118,0 c3.716-0.007,7.249,1.611,9.552,4.528l14.428,18.269c3.304,4.184,8.985,5.664,13.911,3.624l19.374-8.025 c4.925-2.04,7.896-7.104,7.274-12.398l-2.716-23.12c-0.434-3.691,0.92-7.333,3.553-9.956c0.028-0.028,0.056-0.056,0.084-0.083 c2.624-2.621,6.257-3.97,9.941-3.537l23.12,2.716c5.295,0.622,10.358-2.349,12.398-7.274l8.025-19.374 C513.132,227.198,511.653,221.516,507.469,218.212z M403.948,228.701c-18.584,7.698-39.89-1.127-47.588-19.712 s1.128-39.89,19.712-47.588c18.584-7.698,39.89,1.127,47.588,19.712C431.357,199.697,422.532,221.004,403.948,228.701z"></path> </g> </g></svg> More Settings
                     </div>
                     <button class="button">Set</button>
                 </div>
@@ -321,6 +333,12 @@ p.footer {
     } else {
 
       document.querySelector("#BB-hs-disp").innerHTML = JSON.parse(localStorage.getItem("BLOCK_BLAST_USER")).hs;
+    }
+    document.querySelector(".bb-settings").onclick = function(){
+      document.querySelector(".outer-container").style.visibility = "visible"
+    }
+    document.querySelector(".close-btn").onclick = function(){
+      document.querySelector(".outer-container").style.visibility = "hidden"
     }
     window.starGame = function () {
         if ('undefined' == typeof mraid) {
