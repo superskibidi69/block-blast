@@ -76,6 +76,7 @@ html, body {
             text-align: center;
             font-family: "Segoe UI", Frutiger, "Frutiger Linotype", "Dejavu Sans", "Helvetica Neue", Arial, sans-serif;
             flex-direction: column;
+            overflow: hidden;
         }
 
 #Cocos2dGameContainer {
@@ -154,7 +155,7 @@ p.footer {
         height: 50px;
       }
       .outer-container {
-            visibility: visible;
+            visibility: hidden;
             background-color: #3b5cb8;
             border-radius: 10px;
             padding: 20px;
@@ -257,10 +258,11 @@ p.footer {
         }
 
         .settings-wrapper {
+
             display: flex; /* Use flexbox for centering */
             justify-content: center; /* Center horizontally */
             align-items: center; /* Center vertically */
-            height: 100vh; /* Full viewport height */
+            height: 100%; /* Full viewport height */
             width: 100%;
         }
 
