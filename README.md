@@ -1,4 +1,4 @@
-##Block Blast!##
+Block Blast!
 <br>
 This is project is a remake of "Block Blast!" created by Hungry Games Studio ported to the browser. 
 <br>
