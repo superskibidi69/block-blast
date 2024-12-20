@@ -16,7 +16,7 @@ If you come across an error, or something about the game that does not resemble 
 - glow on blocks before blasting a column/row
 - tutorial/guide if first time playing game
 - remove ad container
-
+- update sound effects and sprites
 
 ## Help needed with maintaining
 
