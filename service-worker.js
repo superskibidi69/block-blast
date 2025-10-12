@@ -1,10 +1,11 @@
-const CACHE_NAME = 'block-blast-cache-v1';
+const CACHE_NAME = 'block-blast-cache-v2';
 const urlsToCache = [
   '/',
   '/index.html',
   '/site.webmanifest',
   '/block_icons/android-chrome-192x192.png',
   '/block_icons/android-chrome-512x512.png',
+  '/offline.html',
   // Add more assets as needed
 ];
 
@@ -17,8 +18,14 @@ self.addEventListener('install', event => {
 
 self.addEventListener('fetch', event => {
   event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
+    caches.match(event.request).then(response => {
+      return response || fetch(event.request).catch(() => {
+        // If offline and not cached, show offline page for navigation requests
+        if (event.request.mode === 'navigate') {
+          return caches.match('/offline.html');
+        }
+      });
+    })
   );
 });
 
