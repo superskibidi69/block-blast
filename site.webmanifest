@@ -1,7 +1,7 @@
 {
 	"name": "Block Blast",
-	"short_name": "BlockBlast",
-	"start_url": "/index.html",
+	"short_name": "Block Blast",
+	"start_url": "/",
 	"scope": "/",
 	"display": "standalone",
 	"background_color": "#ffffff",
